@@ -1,0 +1,14 @@
+#!/bin/bash
+
+mv /mediafire-dl/mediafire-dl.py /mediafire-dl/mediafiredl.py
+cat > /mediafire-dl/m.py <<EOF
+
+import mediafiredl
+
+url = "$1"
+output = "/download/$2"
+mediafiredl.download(url, output, quiet=False)
+EOF
+
+(cd /mediafire-dl && python ./m.py)
+
